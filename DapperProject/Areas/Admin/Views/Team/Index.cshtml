@@ -1,0 +1,51 @@
+﻿@model List<ResultTeamDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<div class="col-lg-12 grid-margin stretch-card mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Ekip Arkadaşlarımız Alanı</h4>
+            <small class="card-description ">
+                Ekleme silme veya güncelleme işlemlerini buradan gerçekleştirebilirsiniz.
+            </small>
+            <br />
+            <br />
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <td>Görsel</td>
+                            <td>Ad Soyad</td>
+                            <td>Unvan</td>
+
+                            <td colspan="2">İşlemler</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th>@item.TeamId</th>
+                                <td>@item.ImageUrl</td>
+                                <td>@item.NameSurname</td>
+                                <td>@item.Title</td>
+                                <td><a href="/Admin/Team/DeleteTeam/@item.TeamId" class="btn btn-outline-danger"><i class="la la-trash"></i> Sil</a></td>
+                                <td><a href="/Admin/Team/UpdateTeam/@item.TeamId" class="btn btn-outline-success"><i class="la la-edit"></i> Güncelle</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Admin/Team/CreateTeam" class="btn btn-outline-primary"><i class="la la-pencil"></i> Yeni ekip arkadaşı ekle</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

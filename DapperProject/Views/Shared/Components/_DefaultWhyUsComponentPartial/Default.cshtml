@@ -1,0 +1,34 @@
+﻿ @model List<ResultWhyUsDto>  
+@{
+    int count = 0;
+    string value;
+}
+ <section id="why-us" class="why-us">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Neden Bizi Seçmelisiniz ?</h2>
+                <p>Bizi Tercih Edin</p>
+            </div>
+
+            <div class="row">
+
+              @foreach (var item in Model)
+            {
+                count++;
+                value = "0" + count;
+                <div class="col-lg-4">
+                    <div class="box" data-aos="zoom-in" data-aos-delay="100">
+                        <span>@value</span>
+                        <h4>@item.Title</h4>
+                        <p>@item.Description</p>
+                    </div>
+                </div>
+            }
+
+               
+
+            </div>
+
+        </div>
+    </section>

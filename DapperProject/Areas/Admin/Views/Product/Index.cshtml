@@ -1,0 +1,52 @@
+﻿@model List<ResultProductDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<br />
+<div class="col-lg-12 grid-margin stretch-card mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Ürünler Alanı</h4>
+            <small class="card-description ">
+                Ürün ekleme silme veya güncelleme işlemlerini buradan gerçekleştirebilirsiniz.
+            </small>
+            <br />
+            <br />
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <td>Ürün Adı</td>
+                            <td>Fiyat</td>
+                            <td>Kategori</td>
+                            <th class="text-center" colspan="2">İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th>@item.ProductId</th>
+                                <td>@item.ProductName</td>
+                                <td>@item.ProductPrice</td>
+                                <td>@item.CategoryName</td>
+                                <td class="text-center " style="width:40px"><a href="/Admin/Product/DeleteProduct/@item.ProductId" class="btn btn-outline-danger"><i class="la la-trash"></i>  Sil</a></td>
+                                <td class="text-center " style="width:40px"><a href="/Admin/Product/UpdateProduct/@item.ProductId" class="btn btn-outline-success"><i class="la la-edit"></i> Güncelle</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Admin/Product/CreateProduct" class="btn btn-outline-primary"><i class="la la-pencil"></i> Yeni ürün ekle</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

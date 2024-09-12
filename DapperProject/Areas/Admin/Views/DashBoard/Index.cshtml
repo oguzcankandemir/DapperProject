@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Dashboard</h4>
+        @await Component.InvokeAsync("_AdminDahsboardStatisticComponentPartial")
+        <div class="row">
+            @await Component.InvokeAsync("_AdminDashboardReseravtionComponentPartial")
+            @await Component.InvokeAsync("_AdminDashboardToDoListComponentPartial")
+        </div>
+    </div>
+</div>
+
